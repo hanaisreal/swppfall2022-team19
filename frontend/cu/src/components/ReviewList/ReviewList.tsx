@@ -1,11 +1,7 @@
 // ReviewList
-
-import { useDispatch, useSelector } from "react-redux";
 import "./ReviewList.css";
-import { AppDispatch } from "../../store";
 import Review from "../Review/Review";
-import { useEffect } from "react";
-import { fetchRates, RateType, selectRate } from "../../store/slices/rate";
+import {  RateType} from "../../store/slices/rate";
 import { ProductType } from "../../store/slices/product";
 import { UserType } from "../../store/slices/User";
 
@@ -17,12 +13,6 @@ interface Props{
 
 
 export default function ReviewList (props: Props){
-    const dispatch = useDispatch<AppDispatch>();
-    //const ratesState = useSelector(selectRate);
-
-    // useEffect(() =>{
-    //     dispatch(fetchRates())
-    // })
 
     return (
         <div className="ReviewList"> 

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux"
-import { useNavigate, useParams } from 'react-router'
+import { useParams } from 'react-router'
 
 import RatingForm from '../../components/RatingForm/RatingForm';
 import TotalScoreList from '../../components/TotalScoreList/TotalScoreList';
@@ -9,15 +9,14 @@ import ProductBlock from '../../components/ProductBlock/ProductBlock';
 import "./ProductDetailPage.css"
 import Header from '../Header/Header'
 import { selectUser } from "../../store/slices/User"
-import { fetchProduct, selectProduct, ProductType } from "../../store/slices/product"
-import rate, { fetchRates, RateType, selectRate } from "../../store/slices/rate"
+import { fetchProduct, selectProduct } from "../../store/slices/product"
+import { fetchRates, selectRate } from "../../store/slices/rate"
 import { AppDispatch } from '../../store';
 
 
 function ProductDetailPage() {
   const dispatch = useDispatch<AppDispatch>();
   const { id } = useParams();
-  //const id = useParams().id as string
 
   //왼편에 product, 오른편에 rating, 아래에 totalScoreList, 맨 아래에는 reviewList.
   //현재 로그인된 user_id, product의 subCategory를 element로 다 넘겨줘야된다. 
@@ -25,15 +24,12 @@ function ProductDetailPage() {
   const selectedProduct = useSelector(selectProduct).selectedProduct;
   const rateState = useSelector(selectRate);
 
-  //const [selectedProduct, setSelectedProduct] = useState<ProductType>();
-
   //fetch all the rates stored in particular product
   useEffect(() => {
     dispatch(fetchProduct(Number(id)));
     dispatch(fetchRates())
 
-    // console.log("selectedProduct: " + selectedProduct)
-    // console.log("user: " + userState.selectedUser?.username)
+
   }, [id, dispatch])
 
 

@@ -1,9 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch } from '../../store'
 import "./ProductBlock.css";
-import { fetchProduct, selectProduct } from '../../store/slices/product';
-import { useNavigate, useParams } from 'react-router-dom';
+
 
 interface Props{
     product_id: number,
@@ -16,18 +12,9 @@ interface Props{
     clickProduct?: () => void
 }
 
-const ProductBlock = (props: Props) => {
-    //const {id} = useParams();
-    const dispatch = useDispatch<AppDispatch>()
-    const productState = useSelector(selectProduct)
-
-
-
-    //let commaPrice = productState.selectedProduct?.price.toLocaleString('ko-KR');
-    
+const ProductBlock = (props: Props) => {  
     return (
         <div className="productBlock" onClick={props.clickProduct!}>
-            {/* <a className="productA" href={props.pageLink}> */}
                 <div className="productInfoBlock">
                     <div className="productImageBox">
                     <img className="productImage" src={props.imageUrl} alt="Product"/>
@@ -41,7 +28,6 @@ const ProductBlock = (props: Props) => {
                         <span className='productAverageScore'>평균점수: {props.averageScore}</span>
                     </div>
                 </div>
-            {/* </a> */}
         </div>
     )
 }

@@ -33,12 +33,6 @@ export default function TotalScoreList(props: Props){
         score5 = 0;
         averageScore = 0;
     }
-    // const score1 = props.rate?.forEach((rateScore1) => props.rate.)
-    // const score2 = props.rate?.scores[1]!
-    // const score3 = props.rate?.scores[2]!
-    // const score4 = props.rate?.scores[3]!
-    // const score5 = props.rate?.scores[4]!
-    // const averageScore = (score1 + score2 + score3 + score4 + score5)/5;
 
     useEffect(() => {
         for (const key in Object.keys(subCategoryQuestion)) {

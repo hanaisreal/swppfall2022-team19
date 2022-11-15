@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router'
+import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import HeartRating from './HeartRating'
 import "./RatingForm.css"
-import { AppDispatch, RootState } from '../../store';
+import { AppDispatch} from '../../store';
 import FixedHeartRating from './FixedHeartRating';
 import subCategoryQuestion from "../../Questionnaires/subCategoryQuestion.json"
-import { createRate, deleteRate, fetchRates, RateType, updateRate } from '../../store/slices/rate';
+import { createRate, deleteRate, RateType, updateRate } from '../../store/slices/rate';
 import { UserType } from '../../store/slices/User';
-import { ProductType, selectProduct, fetchProduct} from '../../store/slices/product';
+import { ProductType, selectProduct} from '../../store/slices/product';
 
 interface Props {
   user?: UserType,
@@ -18,8 +17,6 @@ interface Props {
 
 
 function RatingForm(props: Props) {
-  const navigate = useNavigate();
-  const {id} = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const productState = useSelector(selectProduct);
 
